@@ -7,4 +7,4 @@ st.set_page_config(
 
 st.title("Quiz")
 
-st.markdown('<iframe src="https://claude.site/public/artifacts/b2598d60-6141-42dd-88a1-6bd2c861fc9c/embed" title="Quick Code Quiz" width="100%" height="1000" frameborder="0" allow="clipboard-write" allowfullscreen></iframe>', unsafe_allow_html=True)
+st.markdown('<iframe src="https://claude.site/public/artifacts/7a751304-86ed-493b-a71c-fb5b081f5eac/embed" title="Claude Artifact" width="100%" height="1000" frameborder="0" allow="clipboard-write" allowfullscreen></iframe>', unsafe_allow_html=True)
