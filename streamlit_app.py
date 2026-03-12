@@ -10,7 +10,6 @@ st.markdown("""
   }
 </style>
 """, unsafe_allow_html=True)
-st.title("Quiz")
 
 with open("UI.tsx", "r") as f:
     tsx_content = f.read()
