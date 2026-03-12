@@ -172,7 +172,7 @@ export default function App() {
     const weakest = [...catStats].sort((a, b) => a.pct - b.pct)[0];
 
     return (
-      <div className="min-h-screen flex items-center justify-top px-4 py-10" style={{ backgroundColor: '#6A9BCC' }}>
+      <div className="min-h-screen flex items-top justify-top px-4 py-10" style={{ backgroundColor: '#6A9BCC' }}>
         <div className="bg-white rounded-3xl shadow-xl p-8 max-w-lg w-full">
           <div className="text-center mb-6">
             <div className="text-5xl mb-3">{totalPct >= 80 ? "🎉" : totalPct >= 50 ? "💪" : "📚"}</div>
@@ -213,7 +213,7 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-centre px-4 py-8" style={{ backgroundColor: '#6A9BCC' }}>
+    <div className="min-h-screen flex items-top justify-top px-4 py-8" style={{ backgroundColor: '#6A9BCC' }}>
       <div className="w-full max-w-xl">
         <div className="text-center mb-6">
           <h1 className="text-white text-3xl font-bold tracking-tight">⚡ Logic & Low-Code Quiz</h1>
