@@ -216,7 +216,7 @@ export default function App() {
     <div className="min-h-screen flex items-center justify-center px-4 py-8" style={{ backgroundColor: '#6A9BCC' }}>
       <div className="w-full max-w-xl">
         <div className="text-center mb-6">
-          <h1 className="text-white text-3xl font-bold tracking-tight">⚡ Logic & Low-Code</h1>
+          <h1 className="text-white text-3xl font-bold tracking-tight">⚡ Logic & Low-Code Quiz</h1>
           <p className="text-white/60 text-sm mt-1">Coding fundamentals with a PowerApps edge</p>
         </div>
 
