@@ -8,6 +8,8 @@ st.markdown("""
   [data-testid="stAppViewContainer"], [data-testid="stApp"] {
     background-color: #6A9BCC;
   }
+  [data-testid="block-container"] {
+    padding: 0 !important;
 </style>
 """, unsafe_allow_html=True)
 
