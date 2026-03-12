@@ -122,7 +122,6 @@ export default function App() {
   const [peeked, setPeeked] = useState(false);
   const [cardFlipped, setCardFlipped] = useState(false);
   const [explanation, setExplanation] = useState(null);
-  const [loadingExpl, setLoadingExpl] = useState(false);
 
   const card = cards[index];
   const correct = card?.back;
@@ -135,27 +134,12 @@ export default function App() {
     setChoices(shuffle([card.back, ...card.distractors]));
   }, [index]);
 
-  const handleSelect = async (choice) => {
+  const handleSelect = (choice) => {
     if (selected !== null) return;
     setSelected(choice);
     const isCorrect = choice === correct;
     setResults(r => ({ ...r, [index]: isCorrect }));
-
-    setLoadingExpl(true);
-    try {
-      const res = await fetch("https://api.anthropic.com/v1/messages", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          model: "claude-sonnet-4-20250514",
-          max_tokens: 1000,
-          messages: [{ role: "user", content: `A student learning to code was asked: "${card.front}"\nThe correct answer is: "${correct}"\nThey chose: "${choice}"\n\nWrite a 1–2 sentence follow-up that reinforces the correct concept in plain, friendly language. If they were wrong, gently clarify the distinction. No preamble. Under 45 words.` }]
-        })
-      });
-      const data = await res.json();
-      setExplanation(data.content?.[0]?.text || null);
-    } catch { setExplanation(null); }
-    setLoadingExpl(false);
+    setExplanation(card.explanation);
   };
 
   const handleNext = () => {
@@ -295,11 +279,11 @@ export default function App() {
           <div className="mt-4 rounded-2xl px-5 py-4 text-sm leading-relaxed"
             style={{ backgroundColor: selected === correct ? '#bbf7d0' : '#fecaca', color: selected === correct ? '#14532d' : '#7f1d1d' }}>
             {selected !== correct && <p className="font-semibold mb-1">✗ Correct answer: <span className="font-normal italic">{correct}</span></p>}
-            {loadingExpl ? <span className="opacity-60">Explaining…</span> : explanation ? <p>{selected === correct && "✓ "}{explanation}</p> : null}
+            {explanation && <p>{selected === correct && "✓ "}{explanation}</p>}
           </div>
         )}
 
-        {selected !== null && !loadingExpl && (
+        {selected !== null && (
           <button onClick={handleNext} className="w-full mt-5 py-3 bg-gray-900 text-white rounded-full font-medium text-base hover:bg-gray-800 transition-colors">
             {index + 1 >= cards.length ? "See results →" : "Next →"}
           </button>
