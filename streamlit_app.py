@@ -3,7 +3,6 @@ import streamlit as st
 import streamlit.components.v1 as components
 
 st.set_page_config(page_title="Quick Code Quiz", page_icon="📝")
-st.title("Quiz")
 st.markdown("""
 <style>
   [data-testid="stAppViewContainer"], [data-testid="stApp"] {
@@ -11,6 +10,7 @@ st.markdown("""
   }
 </style>
 """, unsafe_allow_html=True)
+st.title("Quiz")
 
 with open("UI.tsx", "r") as f:
     tsx_content = f.read()
